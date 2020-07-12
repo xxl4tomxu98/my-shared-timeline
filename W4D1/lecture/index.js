@@ -1,6 +1,6 @@
 window.onload = () => {
 
-  // VIDEO 1 
+  // VIDEO 1
 
   const extraCheese = document.getElementById('cheese');
   const mushrooms = document.getElementById('mushrooms');
@@ -13,10 +13,8 @@ window.onload = () => {
     checkbox.addEventListener('click', (event) => {
       let itemType = checkbox.getAttribute('id'); // cheese
       let price = checkbox.getAttribute('data-price'); // $2.00
-  
       if (checkbox.checked) {
         let newItem = document.createElement('li');
-        
         newItem.setAttribute('id', `${itemType}-item`); // cheese-item
         newItem.innerHTML = `${itemType}  -  $${price}`; // cheese - $2.00
         receipt.appendChild(newItem);
@@ -26,24 +24,6 @@ window.onload = () => {
       }
     });
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   // VIDEO 2
@@ -79,7 +59,7 @@ window.onload = () => {
     }
 
     if (errors.length === 0) {
-      // do something with the form 
+      // do something with the form
     } else {
       handleErrors(errors);
     }
@@ -88,7 +68,7 @@ window.onload = () => {
   function handleErrors(errors) {
     let errorsUl = document.getElementById('errors');
     errorsUl.innerHTML = '';
-
+    //each error is a new list element
     errors.forEach(error => {
       let el = document.createElement('li');
       el.innerHTML = error;
@@ -99,12 +79,6 @@ window.onload = () => {
   paymentForm.addEventListener('submit', validateForm);
 
 
-
-
-
-
-
-
   // VIDEO 3
 
 
@@ -113,7 +87,6 @@ window.onload = () => {
     // console.log('begin dragStart');
     e.target.classList.add('is-being-dragged');
     e.dataTransfer.setData('text/plain', e.target.id);
-  
     e.dataTransfer.dropEffect = 'move';
   }
 
@@ -155,10 +128,6 @@ window.onload = () => {
   pizza.addEventListener('dragover', handleDragOver);
 
 
-
-
-
-
   // VIDEO 4
 
 
@@ -173,12 +142,6 @@ window.onload = () => {
       pizza.removeChild(item)
     }
   })
-
-
-
-
-
-
 
   // document.querySelectorAll('.has-event').forEach(el => {
   //   el.addEventListener('click', (event) => {
