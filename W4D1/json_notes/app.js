@@ -6,16 +6,14 @@ document.cookie = "cats=0";
 
 // Session Storage...
 
-// if (sessionStorage.getItem("inputText")) {
-//   input.value = sessionStorage.getItem("inputText");
-// }
+if (sessionStorage.getItem("inputText")) {
+  input.value = sessionStorage.getItem("inputText");
+}
 
-// input.addEventListener("keydown", () => {
-//   sessionStorage.setItem("inputText", input.value)
-//   console.log(input.value);
-// })
-
-
+input.addEventListener("keydown", () => {
+  sessionStorage.setItem("inputText", input.value)
+  console.log(input.value);
+})
 
 
 // Local Storage...
@@ -53,52 +51,52 @@ document.cookie = "cats=0";
 
 // We store things in Web Storage as strings, but what if we want to store more complex things?
 // JSON.stringify() and JSON.parse() to the rescue.
-// These allow us to easily convert more complex things like arrays etc 
+// These allow us to easily convert more complex things like arrays etc
 // and take them in and out of Web Storage easily.
 
 
 
 // Lets mess around with that...
 
-// button.addEventListener("click", () => {
-//   const listEle = document.createElement("li");
-//   listEle.innerHTML = input.value;
+button.addEventListener("click", () => {
+  const listEle = document.createElement("li");
+  listEle.innerHTML = input.value;
 
-//   list.appendChild(listEle);
+  list.appendChild(listEle);
+  // clear out input cells for next input
+  input.value = "";
+})
 
-//   input.value = "";
-// })
+const populateStorage = () => {
+  const nodesArr = document.querySelectorAll("li");
+  const textArr = [];
 
-// const populateStorage = () => {
-//   const nodesArr = document.querySelectorAll("li");
-//   const textArr = [];
-  
-//   nodesArr.forEach(ele => textArr.push(ele.innerHTML));
-//   localStorage.setItem("listItems", JSON.stringify(textArr));
-  
-//   if (nodesArr.length > 5) {
-//     localStorage.setItem("listItems", "");
-//     list.innerHTML = "";
-//     alert("reset!")
-//   }
-// };
+  nodesArr.forEach(ele => textArr.push(ele.innerHTML));
+  localStorage.setItem("listItems", JSON.stringify(textArr));
 
-// const setList = () => {
-//   const storedListStr = localStorage.getItem("listItems");
-//   const parsedList = JSON.parse(storedListStr);
+  if (nodesArr.length > 5) {
+    localStorage.setItem("listItems", "");
+    list.innerHTML = "";
+    alert("reset!")
+  }
+};
 
-//   parsedList.forEach(listItem => {
-//     const listEle = document.createElement("li");
-//     listEle.innerHTML = listItem;
+const setList = () => {
+  const storedListStr = localStorage.getItem("listItems");
+  const parsedList = JSON.parse(storedListStr);
 
-//     list.appendChild(listEle);
-//   })
-// };
+  parsedList.forEach(listItem => {
+    const listEle = document.createElement("li");
+    listEle.innerHTML = listItem;
 
-// if (!localStorage.getItem("listItems")) {
-//   populateStorage();
-// }
+    list.appendChild(listEle);
+  })
+};
 
-// setList()
+if (!localStorage.getItem("listItems")) {
+  populateStorage();
+}
 
-// button.addEventListener("click", populateStorage)
+setList()
+
+button.addEventListener("click", populateStorage)

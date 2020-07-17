@@ -1,0 +1,51 @@
+﻿// --------------------------------------------------------
+//        STUDY GUIDE FOR ASSESSMENT -- QUIZ PORTION    
+// --------------------------------------------------------
+
+
+
+
+// Priority (!) -- Mon -- Match the Path Quiz
+// Priority (!!) -- Mon -- Object Notation Quiz
+
+
+// Priority (!) -- Tue -- Primitives vs Reference Quiz (quick)
+// Priority (!) -- Tue -- Destructuring Quiz
+ // array and object syntax
+
+
+// Priority (!!!) -- Wed -- Callbacks Quiz
+ // console.log order
+ // first class objects
+ // executing in node
+
+
+   // first class objects must...
+     // be able to a return value of a function
+     // be able to be assigned to a variable
+     // be able to be an argument to a function
+    
+     // but they don't have to be able to be mutated
+
+
+// Priority (!!) -- Thu -- JavaScript Variables Quiz
+ // undefined vars
+ // error throwing
+
+
+// Priority (!) -- Thu -- Arrow Functions Quiz
+ // printing basics
+
+
+// Priority (!) -- Thu -- Context Quiz
+ // global object
+
+
+// Priority (!) -- Thu -- Scope Quiz
+ // redundant conditional assignments
+
+
+// Priority (!!) -- Thu -- Declaring Variables Free Response
+ // Spelling correction for solution:
+   // "Const and let are block-scoped. Var is function scoped."
+   // "You cannot reassign a const. You can reassign a let and var."

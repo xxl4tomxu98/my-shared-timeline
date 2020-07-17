@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", event => {
   const myName = document.createElement('h1');
   myName.setAttribute('id', "name");
+  myName.setAttribute("class", "name");
   const newContent = document.createTextNode("Tom Xu");
   myName.appendChild(newContent);
   const myImage = document.createElement('img');
@@ -11,8 +12,8 @@ window.addEventListener("DOMContentLoaded", event => {
   const myList = document.createElement('ul');
   // Set the attribute with Element.setAttribute()
   myList.setAttribute("id", "details");
+  myList.setAttribute("class", "my-details");
   // Append the element to the page with Node.
-  document.body.appendChild(myList);
   const detailsArr = [
       "<li>I like to drink beer.</li>",
       "<li>I have two bikes and two cars.</li>",
@@ -22,9 +23,9 @@ window.addEventListener("DOMContentLoaded", event => {
   const liString = detailsArr.join(" ");
   const listElement = document.getElementById("details");
   listElement.innerHTML = liString;
-  const myDetails = document.createElement("ul");
-  myList.setAttribute("class", "my-details");
-  myName.setAttribute("class", "name");
+  document.body.appendChild(myList);
+
+
   // const liNotes = myList.childNodes;
   // for (let value of liNotes.values()) {
   //   value.className = "detail";

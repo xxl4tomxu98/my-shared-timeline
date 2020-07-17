@@ -66,12 +66,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const myButton6 = document.getElementById("store-flavor");
     const myInput1 = document.getElementById("fav-flavor");
-    console.log(localStorage.key);
-    if(localStorage.length ===1){
-      myInput1.value = localStorage.key(0);
+    //console.log(localStorage.key);
+    if(localStorage.getItem("inputText")){
+      myInput1.value = localStorage.getItem("inputText");
     }
     myButton6.addEventListener("click", e =>{
-      localStorage.setItem(myInput1.value, '');
+      localStorage.setItem("inputText", myInput1.value);
     });
 
     const checkmark = document.getElementById("will-not-check");

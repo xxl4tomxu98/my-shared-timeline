@@ -1,6 +1,6 @@
 // without robot
 //----------------------------------------------------------------------
-let currentPlayerSymbol = "x";
+/* let currentPlayerSymbol = "x";
 const squareValues = ['', '', '', '', '', '', '', '', ''];
 window.addEventListener('DOMContentLoaded', () =>{
   if(localStorage.length!==0){
@@ -81,13 +81,13 @@ window.addEventListener('DOMContentLoaded', () =>{
         newGame.setAttribute("disabled", "disabled");
     }
   }
-});
+}); */
 
 
 //-----------------------------------------------------------------
 
 // BONUS robot
-/* let currentPlayerSymbol = "x";
+let currentPlayerSymbol = "x";
 const squareValues = ['', '', '', '', '', '', '', '', ''];
 window.addEventListener('DOMContentLoaded', () =>{
   if(localStorage.length!==0){
@@ -143,22 +143,49 @@ window.addEventListener('DOMContentLoaded', () =>{
     localStorage.setItem(squareIndex, currentPlayerSymbol);
     checkGameStatus(squareValues, currentPlayerSymbol);
     if(currentPlayerSymbol==="x"){
-       //currentPlayerSymbol = "o";
+      //currentPlayerSymbol = "o";
       robotSelection();
     } else {
       currentPlayerSymbol = "x";
     }
   });
 
-  function robotSelection() {
+  function robot(){
+    let selection = Math.floor(Math.random()*9);
+    for(let i=0;i<9;i++){
+      if(squareValues[selection]===''){
+        return selection;
+      }
+      selection=(selection + 1)%9;
+    }
+  }
+
+  function robotRecurse(){
+    let selection = Math.floor(Math.random()*9);
+    if(squareValues[selection]===''){
+      return selection;
+    }
+    return robotRecurse();
+  }
+
+  function robotSelector(){
     do{
       selection = Math.floor(Math.random()*9);
     } while(squareValues[selection]!=='');
+    return selection;
+  }
+
+  function robotSelection() {
+    let selection = robotRecurse();
+    //let selection = robotSelector();
+    //let selection = robot();
     squareValues[selection] = 'o';
     let robotSymbol = document.createElement('img');
     robotSymbol.src = './player-o.svg';
     let currentSquare = document.getElementById(`square-${selection}`);
     currentSquare.appendChild(robotSymbol);
+    // currentPlayerSymbol = "o";
+    // return currentPlayerSymbol;
   }
 
   function checkGameStatus(board, player){
@@ -181,4 +208,3 @@ window.addEventListener('DOMContentLoaded', () =>{
     }
   }
 });
- */

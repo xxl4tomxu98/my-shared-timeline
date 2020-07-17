@@ -1,6 +1,6 @@
 // JSON Learning Objectives
 
-// The objective of this lesson is to familiarize you with the JSON format and how to 
+// The objective of this lesson is to familiarize you with the JSON format and how to
 // serialize to and deserialize from that format.
 
     // Identify and generate valid JSON-formatted strings
@@ -13,14 +13,9 @@
 
 // Storage Lesson Learning Objectives
 
-    // Write JavaScript to store the value "I <3 falafel" with the key "eatz" in 
+    // Write JavaScript to store the value "I <3 falafel" with the key "eatz" in
         // the browser's local storage.
     // Write JavaScript to read the value stored in local storage for the key "paper-trail".
-
-
-
-
-
 
 
 // -----------------------------------------------------
@@ -178,14 +173,14 @@
 
 
 // Serialization is...
-// When you have some data and you want to turn it into a string 
-// (or some other kind of value like "binary") so your program can 
+// When you have some data and you want to turn it into a string
+// (or some other kind of value like "binary") so your program can
 // send it to another computer.
 
 
 
 // Deserialization is...
-// When you take some text (or something another computer has 
+// When you take some text (or something another computer has
 // sent to your program) and turn it into data.
 
 
@@ -222,7 +217,7 @@ let obj1 = {name: "Tom", cats: ["Mittens", "Catman \"The Man\"", "Lenny"] };
 // console.log(obj2);
 
 
-// For whatever it's worth these still play by the same 
+// For whatever it's worth these still play by the same
 // rules as normal JS objects and strings...
 
 // console.log(obj1 === obj1); // Obviously
@@ -250,7 +245,7 @@ let obj1 = {name: "Tom", cats: ["Mittens", "Catman \"The Man\"", "Lenny"] };
 
 
 // You will almost never write raw JSON! Hooray!
-// But you will understand what's going on when you see it, 
+// But you will understand what's going on when you see it,
 // and that will make you a better engineer.
 
 
@@ -268,7 +263,7 @@ console.log(v === a);
 
 
 
-// Are these valid JSON strings? 
+// Are these valid JSON strings?
 // JSON.parse() will be the judge...
 
 // let str = "[1,2,3]";
@@ -302,7 +297,7 @@ console.log(v === a);
 // let obj = ['cat','dog'];
 // let obj = "[cat,dog]";
 // let obj = [1,2,3];
-// let obj = "cats";
+// let obj = ['cat','dog'];
 // let obj = 1;
 
 // let str = JSON.stringify(obj);

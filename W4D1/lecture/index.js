@@ -19,6 +19,7 @@ window.onload = () => {
         newItem.innerHTML = `${itemType}  -  $${price}`; // cheese - $2.00
         receipt.appendChild(newItem);
       } else {
+        //the newItem is within the previous block so we have to redeclare it in this block
         let item = document.getElementById(`${itemType}-item`);
         receipt.removeChild(item);
       }
@@ -31,7 +32,6 @@ window.onload = () => {
   const paymentForm = document.getElementById('payment');
 
   const validateForm = (e) => {
-    e.preventDefault();
 
     console.log(e);
 
@@ -61,11 +61,14 @@ window.onload = () => {
     if (errors.length === 0) {
       // do something with the form
     } else {
+      //default of a form is when submit send the info and wipe every entry empty
+      e.preventDefault();
       handleErrors(errors);
     }
   }
 
   function handleErrors(errors) {
+    //the existing ul errors includes childNodes li which we create for each error
     let errorsUl = document.getElementById('errors');
     errorsUl.innerHTML = '';
     //each error is a new list element
@@ -80,8 +83,6 @@ window.onload = () => {
 
 
   // VIDEO 3
-
-
 
   const handleDragStart = e => {
     // console.log('begin dragStart');
@@ -114,14 +115,13 @@ window.onload = () => {
     e.target.appendChild(draggedElement);
   }
 
-
-
+  //for items being dragged, do only the dragstart with forEach
   const toppings = document.querySelectorAll('.topping').forEach(topping => {
     topping.addEventListener('dragstart', handleDragStart);
   })
 
   const pizza = document.getElementById('drop-zone')
-
+  //the follwoing handlers are all only related to target dropzone
   pizza.addEventListener('drop', handleDrop);
   pizza.addEventListener('dragenter', handleDragEnter);
   pizza.addEventListener('dragleave', handleDragLeave);
@@ -130,8 +130,8 @@ window.onload = () => {
 
   // VIDEO 4
 
-
   pizza.addEventListener('click', event => {
+    // here bubbling delegation occurs
     let item = event.target;
     // debugger
 

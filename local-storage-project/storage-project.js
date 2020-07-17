@@ -20,7 +20,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         buyingItem.appendChild(numSpinner);
         shoppingCart.appendChild(buyingItem);
     }
-    removeItem();
   };
 
   const storeItem = () => {
@@ -53,4 +52,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   };
   storeItem();
+  removeItem();
 });

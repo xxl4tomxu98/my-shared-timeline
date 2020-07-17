@@ -1,9 +1,11 @@
 
-
 // window.onload = () => {
 //   console.log("This script will load after resources and DOM loaded");
 // };
-//console.log("This will run after the DOM loaded");
+
+//window.addEventListener("DOMContentLoaded", (event) => {
+//    console.log("This will run after the DOM loaded");
+//});
 document.cookie = "monster_name = cookie";
 document.cookie = "favorate_cookie = snickerdoodle";
 setCookie("myCookie", "choklateApple");
@@ -34,6 +36,7 @@ function getCookieValue(name) {
 }
 
 function alertCookieValue(name) {
+  //in a seris of ; separated key=value pairs given the key find the value
   const cookieValue = document.cookie
   .split('; ')
   .find(row => row.startsWith(`${name}`))
@@ -69,7 +72,7 @@ function specificCookieValue(name,value){
 
 //console.log(getCookieValue("monster_name"));
 
-function deleteCookie(name) {
+/* function deleteCookie(name) {
   let arr = document.cookie.split('; ');
   for (let i = 0; i < arr.length; i++) {
     let el = arr[i];
@@ -80,13 +83,25 @@ function deleteCookie(name) {
       document.cookie = `${el}=${val}; expires=Fri, 31 Dec 1999 23:59:59 GMT`;
       // document.cookie = `=${val}; expires=Fri, 31 Dec 1999 23:59:59 GMT`;
       //document.cookie = `${el}=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-      return;
+      return`${el} deleted`;
     }
+  }
+  console.log("cookie name not found");
+} */
+
+function deleteCookie(name) {
+  if (document.cookie.split('; ').find(row => row.startsWith(name))) {
+    alert("find the cookie to delete!");
+    document.cookie = `${name}=; expires=Fri, 31 Dec 1999 23:59:59 GMT`;
+    //document.cookie = `${name}= ; Max-Age=0`;
+    return `${name} deleted`;
   }
   console.log("cookie name not found");
 }
 
-deleteCookie('myCookie');
+
+
+deleteCookie('cat');
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -103,16 +118,18 @@ setCookie("dimension", getRandomInt(500));
 // newWindow.resizeBy(-100, -100);
 
 //bonus B enter key and value and create new cookies from user inout
-window.addEventListener("DOMContentLoaded", (event) => {
-  const button = document.getElementById("createCookie");
-  button.addEventListener("click", event => {
-    console.log(event.target);
-    let newKey = document.getElementById('key').value;
-    let newValue = document.getElementById('value').value;
-    setCookie(newKey, newValue);
-    console.log(document.cookie);
+
+const button = document.getElementById("createCookie");
+button.addEventListener("click", event => {
+  console.log(event.target);
+  let newKey = document.getElementById('key').value;
+  let newValue = document.getElementById('value').value;
+  setCookie(newKey, newValue);
+  newKey='';
+  newValue='';
+  console.log(newKey);
   });
-});
 
 
-//window.alert("We have some cookies!")
+
+window.alert("We have some cookies!")

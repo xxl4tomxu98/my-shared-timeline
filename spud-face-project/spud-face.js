@@ -87,6 +87,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const licenseNumConfirmEle = document.getElementById('license-num-confirm');
   licenseNumConfirmEle.addEventListener('input', event => {
     if(licenseNumEle.value !== licenseNumConfirmEle.value){
+      event.preventDefault();
       licenseNumEle.style.backgroundColor= 'Red';
       licenseNumConfirmEle.style.backgroundColor = 'Red';
     } else {
@@ -103,6 +104,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     event.preventDefault();
     count += 1;
     licenseSubmit.innerHTML = `Submitted ${count} Times`;
+    //licenseSubmit.innerHTML = `${event.detail}`;
   });
 
 // Bonus: create a Mr. Spud Face drag-and-drop game inside of your spud-face.html file.
