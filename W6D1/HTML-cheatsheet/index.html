@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My HTML Cheat Sheet</title>
+    <link rel = "stylesheet"
+          href= "https://unpkg.com/purecss@1.0.1/build/pure-min.css">
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <h1>Linking a stylesheet</h1>
+        <p>adding a stylesheet using a link tag. The link tag is an empty tag, which means that it has no content and no end tag in its element. When you link another file to this file, you have to specify the relation of the link using the "rel" attribute. For stylesheets, you set the value of the "rel" attribute to "stylesheet". Then you specify the URL of the linked file using the "href" attribute.</p>
+      </section>
+
+      <section>
+        <h1>List-o-rama!</h1>
+        <p>There are three types of lists in HTML: unordered lists (bullet lists), ordered lists (numbered lists), and definition lists. Very few programmers use definition lists, so you can investigate those on your own. Create a new h1 element after the paragraph element containing the description of how you added a stylesheet. Set it's content to "List-o-rama!". After that element, create an unordered list element (ul). Add three list item elements as children of the unordered list element and set the content to "Lettuce", "Bananas", and "Jalapeños", respectively. Refresh your page to see your list.
+        After the unordered list element, add an ordered list (ol) element with three list item elements with the content "Have an idea", "Write an app", "Profit!", respectively. Refresh your page and see the steps to success! Note that the ordered list and the unordered list both use the common list item element to provide the structure to each list. The browser then determines to show each with either a bullet or a number depending on the type of enclosing list.</p>
+
+        <ul type="square">
+          <li>Lettuce</li>
+          <li>Bananas</li>
+          <li>Jalapenos</li>
+        </ul>
+        <ol type="i" start="10" reversed>
+          <li>Have an idea</li>
+          <li>Write an app</li>
+          <li>Profit!</li>
+        </ol>
+      </section>
+
+      <section>
+        <h1>Anchor an element to navigate between web pages</h1>
+        <p>
+          People navigate between Web pages by clicking on links. Now, you think you'd use the link element to do that. NOPE! SURPRISE! GOTCHA! That's not what you use. Instead, you use an anchor element (a). According to HTML for Dummies, "An anchor element is called an anchor because web designers can use it to "anchor" a URL to some text on a web page."
+          The anchor element uses the same attributes as the link element, primarily relying on the "href" attribute to point where the link goes. After the lists, add a new h1 element that describes the section, add a paragraph that contains some text about how links work, and then, in the paragraph, add an anchor element with an "href" attribute that points to DuckDuckGo with the content "Go to DuckDuckGo to search for more information."
+          <a href="https://duckduckgo.com">
+            Go to DuckDuckGo to search for more information.
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h1>Images</h1>
+        <p>
+          You can use the img tag to add images to your page.
+          <img src="http://wanderlord.com/wp-content/uploads/2015/11/Lemur-5-150x150.jpg">
+        </p>
+      </section>
+
+      <section>
+        <table class="pure-table pure-table-striped">
+        <p>Add a new section. Add a new header that labels this  is the table section.
+        Tables in HTML are great for displaying tabular data, such as an address book or a list of product descriptions and prices. Although tables are good for keeping things organized, tables should only be used for displaying data, not for defining the layout of a page.
+
+        Creating tables can be a little confusing at first. The best way to learn tables is to create an example.
+
+        You create a table using the "table" tag.
+        If your table has a header, that is, rows that should be considered as the column headers, you add a "thead". Then you add a "tbody" which should contain the data of your table. If your table has a footer, that is, rows that summarize the tabular data, then you add a "tfoot", too. Finally Now, add rows to the table, row by row, using the table row tag for each row. In the rows, put "th" elements and signify that it is a column or row header using the "scope" attribute. Put "td" to hold the data.
+        Just to make it pretty with the Pure.css on the page, add the classes "pure-table" and "pure-table-striped" to the opening "table" tag.
+        </p>
+
+          <thead>
+            <tr>
+              <th scope="column">Insect</th>
+              <th scope="column">Family</th>
+              <th scope="column">Fact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Ladybug</th>
+              <td>Coccinellidae</td>
+              <td>Can eat more than 5,000 insects!</td>
+            </tr>
+            <tr>
+              <th scope="row">Fruit flies</th>
+              <td>Drosophilidae</td>
+              <td>First living creatures in outer space!</td>
+            </tr>
+            <tr>
+              <th scope="row">Caterpillars</th>
+              <td>Heterobathmiidae</td>
+              <td>Have 12 eyes!</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td>I had no ideas!</td>
+              <td>Those are neat!</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

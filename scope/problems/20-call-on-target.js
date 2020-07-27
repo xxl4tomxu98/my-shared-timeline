@@ -1,5 +1,5 @@
 /***********************************************************************
-Write a function named `callOnTarget(function, obj1, ob2)`.  `callOnTarget` will
+Write a function named `callOnTarget(function, obj1, obj2)`.  `callOnTarget` will
 accept a function to invoke that will use the first passed in object, (obj1), as
 the context for that function call and the second passed in object, (obj2), as
 an argument being passed to the function upon invocation.

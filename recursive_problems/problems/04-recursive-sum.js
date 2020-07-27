@@ -17,7 +17,7 @@ function sum(arr) {
     return arr[0] + sum(arr.slice(1));
 }
 
-const sum2 = arr => arr.length === 0 ? 0 : arr[0] + sum2(arr.slice(1));
+const sum2 = arr => arr.length === 0 ? arr[0] : arr[0] + sum2(arr.slice(1));
 
 
 console.log(sum([1, 2, 3])); // => 6

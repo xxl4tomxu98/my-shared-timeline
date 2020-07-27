@@ -52,7 +52,7 @@ console.log(addTwenty(5)); // prints 25
 console.log(addTwenty(10)); // prints 30
 
 const bow = (...names) => {
-  let nameArr = Array.from(names);
+  //let nameArr = Array.from(names);
   return "You bowed to " + names.join(" and ");
 };
 

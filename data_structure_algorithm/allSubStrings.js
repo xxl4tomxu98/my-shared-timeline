@@ -1,4 +1,4 @@
-// The task is to get a array of all substrings of a sting
+// The task is to get a array of all substrings of a string
 
 function getAllSubstrings(str) {
   let result = [];
