@@ -40,7 +40,7 @@ describe("Person Class", ()=>{
   describe("instance method switchVisit(other person)", ()=>{
     it("should invoke args' visit function passing current instance", ()=>{
       let jerry = new Person("Jerry", 40);
-      let visiting = jerry.visit(tom);
+      let visiting = tom.switchVisit(jerry);
       expect(visiting).to.equal(`${jerry.name} visited ${name}.`);
     });
   });

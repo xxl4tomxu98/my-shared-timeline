@@ -53,10 +53,13 @@ function doChores() {
   let items = [];
   doDishes()
     .then(res => items.push(res))
-    .then(walkTheDog().catch(reason => console.error(reason)))
+    .then(walkTheDog)
     .then(res => {
       items.push(res);
       console.log(items);
+    }, reason => {
+      console.log(items);
+      console.error(reason);
     });
 }
 
@@ -120,11 +123,6 @@ doChores();
 
 // doChores();
 
-
-
-
-
-//
 
 
 

@@ -1,3 +1,5 @@
+//memoization with only two element array forgetting prior
+// O(n) time O(1)memory
 let fibonacciSequence = function (length) {
   if (length === 0) {
     return [];
@@ -16,15 +18,18 @@ let fibonacciSequence = function (length) {
 };
 
 function fib(n) {
-  if (n === 1) {
-    return 1;
-  } else if (n === 2) {
-    return 1;
-  } else {
-    return (fib(n - 2) + fib(n - 1));
-  }
-}
+  let mostRecentCalcs = [0, 1];
 
+  if (n === 0) return mostRecentCalcs[0];
+
+  for (let i = 2; i <= n; i++) {
+    const [ secondLast, last ] = mostRecentCalcs;
+    mostRecentCalcs = [ last, secondLast + last ];
+  }
+
+  return mostRecentCalcs[1];
+}
+//requires returning an array of fib sequence
 function fibonacciSequence2(num) {
   if (num === 0) {
     return [];
@@ -43,3 +48,11 @@ console.log(fibonacciSequence(0));  // [ ]
 console.log(fibonacciSequence(1));  // [ 1 ]
 console.log(fibonacciSequence(2));  // [ 1, 1 ]
 console.log(fibonacciSequence(15));  // [ 1, 1, 2, 3, 5, 8, 13, 21...]
+
+console.log(fibonacciSequence2(4));  // [ 1, 1, 2, 3 ]
+console.log(fibonacciSequence2(5));  // [ 1, 1, 2, 3, 5 ]
+console.log(fibonacciSequence2(8));  // [ 1, 1, 2, 3, 5, 8, 13, 21 ]
+console.log(fibonacciSequence2(0));  // [ ]
+console.log(fibonacciSequence2(1));  // [ 1 ]
+console.log(fibonacciSequence2(2));  // [ 1, 1 ]
+console.log(fibonacciSequence2(15));

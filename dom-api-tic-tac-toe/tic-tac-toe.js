@@ -90,11 +90,13 @@ window.addEventListener('DOMContentLoaded', () =>{
 let currentPlayerSymbol = "x";
 const squareValues = ['', '', '', '', '', '', '', '', ''];
 window.addEventListener('DOMContentLoaded', () =>{
+  //load the stored data into the squareValues array when page refreshed
   if(localStorage.length!==0){
     for(let i=0; i<localStorage.length; i++){
       key = localStorage.key(i);
       squareValues[key] = localStorage.getItem(key);
     }
+    // the array info is then loaded onto the board
     for(let i=0; i<squareValues.length; i++) {
       let currentSquare = document.getElementById(`square-${i}`);
       let storedValue = squareValues[i];
@@ -108,17 +110,20 @@ window.addEventListener('DOMContentLoaded', () =>{
 
   const square = document.getElementById("tic-tac-toe-board");
   let newGame = document.getElementById("new-game");
+  let giveUp = document.getElementById("give-up");
 
   newGame.addEventListener("click", e => {
+    //reload the page when newGame button is hit
     location.reload();
     for(let key in localStorage) {
       console.log(key)
+      //cleanup the storage when newGame starts
       localStorage.removeItem(key);
     }
     newGame.setAttribute("disabled", "disabled");
     giveUp.removeAttribute('disabled');
   });
-  let giveUp = document.getElementById("give-up");
+
   giveUp.addEventListener("click", e =>{
     let judge = document.getElementById("game-status");
     if(currentPlayerSymbol==="x"){
@@ -126,15 +131,18 @@ window.addEventListener('DOMContentLoaded', () =>{
     } else {
       judge.innerHTML = `player-x wins!`;
     }
+    //flip the buttons when giveUp button hits
     giveUp.setAttribute("disabled", "disabled");
     newGame.removeAttribute('disabled');
   });
 
   square.addEventListener("click", event =>{
     let id = event.target.id;
+    //has to put pieces onto the squares
     if(!id.includes("square-")) return;
     const squareIndex = Number.parseInt(id[id.length-1], 10);
     //console.log(squareIndex);
+    //nonempty squares are not allowed
     if(squareValues[squareIndex] !== '') return;
     const img = document.createElement('img');
     img.setAttribute("src", `./player-${currentPlayerSymbol}.svg`);
@@ -144,11 +152,17 @@ window.addEventListener('DOMContentLoaded', () =>{
     checkGameStatus(squareValues, currentPlayerSymbol);
     if(currentPlayerSymbol==="x"){
       //currentPlayerSymbol = "o";
+      //assuming robot always use symbol "o"
       robotSelection();
     } else {
       currentPlayerSymbol = "x";
     }
+
   });
+
+
+
+
 
   function robot(){
     let selection = Math.floor(Math.random()*9);
@@ -156,6 +170,7 @@ window.addEventListener('DOMContentLoaded', () =>{
       if(squareValues[selection]===''){
         return selection;
       }
+      //if random num is not empty, shift 1 spot and check
       selection=(selection + 1)%9;
     }
   }
@@ -165,10 +180,14 @@ window.addEventListener('DOMContentLoaded', () =>{
     if(squareValues[selection]===''){
       return selection;
     }
+    //first random index not empty, then recursively find empty one
     return robotRecurse();
   }
 
+
+
   function robotSelector(){
+    //simple random number as index
     do{
       selection = Math.floor(Math.random()*9);
     } while(squareValues[selection]!=='');
@@ -176,15 +195,17 @@ window.addEventListener('DOMContentLoaded', () =>{
   }
 
   function robotSelection() {
-    let selection = robotRecurse();
+    //let selection = robotRecurse();
     //let selection = robotSelector();
-    //let selection = robot();
-    squareValues[selection] = 'o';
+    let selection = robot();
+
     let robotSymbol = document.createElement('img');
     robotSymbol.src = './player-o.svg';
+    squareValues[selection] = 'o';
     let currentSquare = document.getElementById(`square-${selection}`);
     currentSquare.appendChild(robotSymbol);
-    // currentPlayerSymbol = "o";
+    //checkGameStatus(squareValues, robotSymbol);
+    //currentPlayerSymbol = "x";
     // return currentPlayerSymbol;
   }
 

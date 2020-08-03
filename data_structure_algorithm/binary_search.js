@@ -3,13 +3,9 @@
 function find(ordered_list, element_to_find) {
   let start_index = 0;
   let end_index = ordered_list.length - 1;
-
   while (start_index <= end_index) {
-
     let middle_index = Math.floor(start_index + (end_index - start_index) / 2);
-
     let middle_element = ordered_list[middle_index];
-
     if (middle_element === element_to_find) {
       return middle_element;
     } else if (middle_element > element_to_find) {
