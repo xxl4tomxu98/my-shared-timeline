@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="want-to-read">Want to Read</button>
+  </body>
+  <script>
+    document.querySelector(".want-to-read").addEventListener("click", function() {
+      fetch(`https://api.goodreads.com/books/${BOOK_ID}/update-status`, {
+        method: "PATCH", // PATCH since we'll just be modifying the book's status
+        body: JSON.stringify({
+          status: "Want to Read"
+        })
+      })
+      // HANDLING THE SERVER RESPONSE WILL GO HERE AND WILL BE COVERED
+      // IN A LATER STEP.
+        .then(function(res) {
+          if (!res.ok) {
+            throw Error(res.statusText); // handle any potential server errors
+          }
+          return res.json(); // extract JSON from the response
+        })
+        .then(function(data) {
+          // handle the response data here
+          document.querySelector(".want-to-read").innerHTML = "✓ Want To Read";
+        })
+        .catch(function(error) {
+          // handle errors here
+          const errorMessage = document.createElement("p");
+          errorMessage.appendChild(
+            document.createTextNode("Something went wrong. Please try again!")
+          );
+
+          // This example appends an error message to the body for simplicity's sake.
+          // Please do not copy this kind of DOM manipulation in your own projects:
+          document.querySelector("body").appendChild(errorMessage);
+        });
+    });
+  </script>
+</html>

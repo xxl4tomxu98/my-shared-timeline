@@ -1,0 +1,92 @@
+.masthead {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-template-rows: auto;
+     grid-template-areas:
+     "sec1 . sec2"
+     ". sec3 ."
+     "sec4 sec5 sec6";
+}
+
+.masthead__menu-and-search {
+     grid-area: sec1;
+     display: flex;
+     align-items: center;
+     padding-left: 20px;
+     height: 60px;
+}
+
+.masthead__actions {
+     grid-area: sec2;
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+}
+
+.masthead__technologies {
+     grid-area: sec3;
+     text-align: center;
+     margin: 0 130px;
+
+}
+
+.masthead__date {
+     grid-area: sec4;
+     display: flex;
+     align-items: flex-end;
+     font-size: 11px;
+     border-bottom: 1px solid #e2e2e2;
+     border-top: 1px solid #e2e2e2;
+}
+
+.masthead__logo {
+     grid-area: sec5;
+     border-bottom: 1px solid #e2e2e2;
+     border-top: 1px solid #e2e2e2;
+}
+
+.masthead__paper {
+     grid-area: sec6;
+     display: flex;
+     flex-direction: row-reverse;
+     align-items: flex-end;
+     font-size: 11px;
+     border-bottom: 1px solid #e2e2e2;
+     border-top: 1px solid #e2e2e2;
+}
+.masthead__icon-button > i {
+     font-size: 11px;
+     padding: 7px 11px;
+}
+.masthead__icon-button:hover {
+     background-color: #d4d4d4;
+}
+
+.masthead__actions-buttons {
+     margin-left: 15px;
+     background-color: #6288a5;
+     padding: 10px 15px;
+     border-radius: 5px;
+     color: white;
+     font-weight: 700;
+}
+.masthead__actions-options {
+     margin-left: 15px;
+     align-self: center;
+}
+
+.masthead__technology {
+     margin: 0 4px;
+}
+
+.masthead__technology-list {
+     color: #6f6f6f;
+     font-size: 10px;
+     border-left: 1px solid #e2e2e2;
+     border-right: 1px solid #e2e2e2;
+     border-top: 1px solid #e2e2e2;
+     border-radius: 2px;
+     background-color: white;
+     position: relative;
+     top: 1px;
+}
