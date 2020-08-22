@@ -1,4 +1,4 @@
--- This query needs to insert new data into the "recipes" table.
+-- This query needs to insert new data into the "instructions" table.
 --
 --   * Insert into the "instructions" table:
 --     * $1 is specification
@@ -45,4 +45,9 @@
 -- YOUR CODE HERE
 insert into instructions(list_order,specification, recipe_id)
 VALUES (
-(select coalesce (Max(list_order),0)+1 from instructions where recipe_id = $2), $1,$2);
+(SELECT coalesce (Max(list_order),0)+1
+ FROM instructions
+ WHERE recipe_id = $2),
+ $1,
+ $2
+);

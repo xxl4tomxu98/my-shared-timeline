@@ -34,3 +34,7 @@ Using the Sequelize query syntax, prepare three functions that will return the v
 	- Find the release date for all the albums by The Beatles.
 	- Find the artist for the album The Life of Pablo.
 	- Find all the albums along with their genres and artists.
+
+	- select "albumName", "artistName", genre 
+from "Genres" inner join "Albums" on "Albums"."genreId" = "Genres".id
+inner join "Artists" on "Albums"."artistId" = "Artists".id

@@ -1,4 +1,4 @@
--- This query needs to insert new data into the "recipes" table.
+-- This query needs to insert new data into the "ingredients" table.
 --
 --   * Insert into the "ingredients" table:
 --     * $1 is amount
