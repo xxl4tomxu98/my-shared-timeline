@@ -1,0 +1,40 @@
+Useful terminal commands
+touch "filename.filetype": create a file as whatever extension you end it as
+example: touch cmds.js
+cd ..: change directory to directory above
+cd ~: change directory to home/root
+code "filename": opens the file name using default editor
+cp "filename" "directory": copies the file specified to the directory specified. if copying file and it exists, it will overwrite existing file
+example: cp text.txt /home/documents/
+ls: lists contents of the directory you're currently in
+mv "foldername/filename.txt" "newfolder/filename.txt": moves file from one place to another
+think of it as "cut" option as in cut and paste
+mv can also rename a directory
+rm "filename": removes a file or directory
+rmdir "directory": removes directory
+curl "url": downloads a url to a file on your computer
+curl -o "url-filename" "url": allows you to name file you're downloading to your computer
+Grep commands
+Grep is case sensitive
+
+grep "pattern" "filename": will search through file given for the pattern specified
+
+use double quotes for string more than a single word
+grep -r: search any file in directory for the pattern
+
+grep -n: show exact line number for each match
+
+grep -i: ignores case of pattern
+
+grep -c: returns the number of matches
+
+can be used with -r to see filenames as well
+man grep: opens grep's manual page
+
+man grep | grep -C1 count: counts the pattern matches on a man page
+
+The single ">" operator will create a new file to place output in. Existing content will be overwritten. grep -r "TODO" my_app/ > my-app-todos.txt
+
+The double ">>" operator will append your output to an existing file (or create a new one if needed). grep "my-name" list-of-names.html >> name-locations.txt
+
+ls my_directory/ | tee directory_contents.txt: shows output and writes to a file

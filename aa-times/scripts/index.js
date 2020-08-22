@@ -5,10 +5,10 @@ window.addEventListener('DOMContentLoaded', event => {
   document.querySelector('body').appendChild(menu);
   document.querySelector('.fa-cog')
   .addEventListener('click', event => {
-      menu.style.position = 'relative';
+      menu.style.position = 'fixed';
       let styles = getComputedStyle(menu);
-      menu.style.bottom = '20em';
-      menu.style.right = '15em';
+      menu.style.top = '5em';
+      menu.style.right = '5em';
       if (styles.display === 'block') {
         menu.style.display = 'none';
       } else {

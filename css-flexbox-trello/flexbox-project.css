@@ -120,7 +120,7 @@ body {
 }
 
 .boards__board{
-  background-color: black;
+  background-color:lightgrey;
   border-radius: 3px;
   box-sizing: border-box;
   font-weight: bold;
@@ -179,13 +179,54 @@ body {
 }
 
 .boards__board.board-1{
-  background-image: url('./board-backgrounds/board-1-background.jpg')
+  background-image: url('./board-backgrounds/board-1-background.jpg');
+  background-size: cover;
 }
 
+.boards__board.board-2{
+  background-image: url('./board-backgrounds/board-2-background.jpg');
+  background-size: cover;
+}
 
+.boards__board.board-3{
+  background-image: url('./board-backgrounds/board-3-background.jpg');
+  background-size: cover;
+}
 
+.boards__board.board-4{
+  background-image: url('./board-backgrounds/board-4-background.jpg');
+  background-size: cover;
+}
 
+.boards__board.board-5{
+  background-image: url('./board-backgrounds/board-5-background.jpg');
+  background-size: cover;
+}
 
+.boards__board.board-6{
+  background-image: url('./board-backgrounds/board-6-background.jpg');
+  background-size: cover;
+}
+
+.boards__board.board-7{
+  background-image: url('./board-backgrounds/board-7-background.jpg');
+  background-size: cover;
+}
+
+.boards__board.board-8{
+  background-image: url('./board-backgrounds/board-8-background.jpg');
+  background-size: cover;
+}
+
+.boards__board.board-9{
+  background-image: url('./board-backgrounds/board-9-background.jpg');
+  background-size: cover;
+}
+
+.boards__board.board-10{
+  background-image: url('./board-backgrounds/board-10-background.jpg');
+  background-size: cover;
+}
 
 
 

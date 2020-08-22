@@ -1,0 +1,134 @@
+/* CSS simple reset */
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Formatting card */
+.card {
+  width: 344px;
+  display: grid;
+  grid-template-columns: 1fr 3fr ;
+  grid-template-rows: 200px 1fr 2fr ;
+
+  /* Curved border around the form */
+  padding: 5px;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+
+  /* Make all the fonts in the form the same */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card :hover {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.card .profile-picture {
+  height: 194px;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  justify-self: stretch;
+}
+
+.card .portrait {
+  height: 40px;
+  width: 40px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  border-radius: 50%;
+  justify-self: center;
+  align-self: center;
+}
+
+.card .body-text {
+  size: 11px;
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+  color: #232f34;
+  padding: 16px;
+  justify-self: flex-end;
+}
+
+.card .profile-main {
+  grid-column: 2 / -1;
+  grid-row: 2 / 3;
+  align-self: center;
+  justify-content: space-around;
+}
+
+.card .profile-main .title{
+  margin: 0 auto;
+  color: #000000;
+  size: 22px;
+}
+
+.card .profile-main .secondary-text{
+  margin: 0 auto;
+  color: #232f34;
+}
+
+/* formatting form */
+
+form {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.formgrid {
+
+  display: grid;
+  grid-template-columns: 1fr 2fr ;
+  grid-gap: 16px;
+
+  /* Curved border around the form */
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  /* Make all the fonts in the form the same */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.formgrid label {
+  grid-column: 1 / 2;
+  width: auto;
+  justify-self: stretch;
+}
+
+.formgrid
+input,
+select,
+textarea,
+button {
+  grid-column: 2 / 3;
+  width: auto;
+  margin: 0;
+}
+
+@media screen and (max-width: 599px) {
+  form {
+    width: 100%;
+    box-sizing: border-box;
+
+  }
+  .formgrid label {
+    grid-column: 1 / -1;
+  }
+
+  .formgrid input, select, textarea, button {
+    grid-column: 1 / -1;
+  }
+}
