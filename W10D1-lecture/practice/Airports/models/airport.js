@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Airport.associate = function(models) {
     // associations can be defined here
-    Airport.hasMany(models.Flight, {foreignKey: 'departureAirportId'});
-    Airport.hasMany(models.Flight, {foreignKey: 'arrivalAirportId'});
+    Airport.hasMany(models.Flight, {as: 'departureAirport', foreignKey: 'departureAirportId'});
+    Airport.hasMany(models.Flight, {as: 'arrivalAirport', foreignKey: 'arrivalAirportId'});
   };
   return Airport;
 };

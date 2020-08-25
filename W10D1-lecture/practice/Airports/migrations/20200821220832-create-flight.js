@@ -10,7 +10,7 @@ module.exports = {
       },
       date: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.STRING(50)
       },
       time: {
         allowNull: false,
@@ -18,11 +18,13 @@ module.exports = {
       },
       departureAirportId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model : 'Airports'}
       },
       arrivalAirportId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model : 'Airports'}
       },
       status: {
         allowNull: false,
@@ -34,7 +36,8 @@ module.exports = {
       },
       airplaneId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model : 'Airplanes'}
       },
       createdAt: {
         allowNull: false,

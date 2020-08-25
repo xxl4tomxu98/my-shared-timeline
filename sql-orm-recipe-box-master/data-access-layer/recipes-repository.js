@@ -44,8 +44,7 @@ async function getTenNewestRecipes() {
 
 async function getRecipeById(id) {
   // Use the findByPk method of the Recipe object to return the recipe. Use
-  // nested eager loading to load the associated instructions, ingredients, and
-  // measurement units.
+  // nested eager loading to load the associated instructions, ingredients, and measurement units.
   //
   // In the video, you saw this, where the presenter had to use the "include"
   // directive. The general form for calling and of the "find" methods with

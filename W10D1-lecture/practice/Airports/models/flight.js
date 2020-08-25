@@ -47,8 +47,8 @@ module.exports = (sequelize, DataTypes) => {
   Flight.associate = function(models) {
     // associations can be defined here
     Flight.belongsTo(models.Airplane, {foreignKey: 'airplaneId'});
-    Flight.belongsTo(models.Airport, {foreignKey: 'departureAirportId'});
-    Flight.belongsTo(models.Airport, {foreignKey: 'arrivalAirportId'});
+    Flight.belongsTo(models.Airport, {as: 'departureAirport', foreignKey: 'departureAirportId'});
+    Flight.belongsTo(models.Airport, {as: 'arrivalAirport', foreignKey: 'arrivalAirportId'});
   };
   return Flight;
 };
