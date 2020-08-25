@@ -1,0 +1,9 @@
+html
+  head
+    title Welcome
+  body
+    h1 All #{resource} 
+
+    ul
+      each obj in resources
+        li: a(href= `/` + resource + `/` + obj.id) #{obj.name}

@@ -1,0 +1,16 @@
+html
+  head
+    title Welcome
+  body
+
+    if loggedIn
+      h2 Welcome, #{name}
+      a(href='/logout') Logout
+    else
+      a(href='/login') Login
+
+    ul.list
+      each item in items
+        li.list__item= item
+
+    a(href="/hello") Say Hello

@@ -1,0 +1,45 @@
+// can use dynamic data to control generation of html 
+// no end statements, indents are important
+
+html
+  head
+    title= title 
+  body
+    h1= heading
+
+    if loggedIn
+      h2 Welcome, #{name}
+      a(href='/logout') Logout
+    else
+      a(href='/login') Please Login
+
+    br 
+
+    ul
+      each item in items
+        // colon puts element inside another
+        li: h3= item 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //- ul 
+    //-   - let x = 0
+    //-   while x < 10
+    //-     li=x
+    //-     - x++
+

@@ -1,0 +1,34 @@
+// assign el attributes inside parens
+// ELEMENT(ATTRIBUTE=ATTRIBUTE_VALUE)
+// can use . & # to set class and id attributes
+
+html
+  head
+    style
+      include ../stylesheets/layout.css
+    title= title 
+  body
+    h1= heading
+    h2 Welcome, #{name}
+
+    a(href='/profile' class='menu-button') About
+
+    // above could also be written like this:
+    //- a.menu-button(href='/profile') About
+
+    br
+    br
+
+    div#my-div MY DIV WOO
+
+    // divs are common so dont need to specify
+    //- #my-div MY DIV WOOHOHOHO
+
+    br
+
+    // can compound attributes like in css files
+    label.my-label.large First Name
+
+    // can dynamically assign attribute values
+    input(type='text' name='name', value=name)
+    

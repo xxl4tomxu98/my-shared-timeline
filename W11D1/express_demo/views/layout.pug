@@ -1,0 +1,16 @@
+html
+  head
+    title Welcome
+  body
+    h1 Routes to Test
+    h2 Product Pages
+  
+    ul
+      each path in productPaths
+        li: a(href=path)= path
+
+    h2 Products Pages
+
+    ul 
+      each path in productsPaths
+        li: a(href=path)= path 
