@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+  table
+    thead
+      tr
+        th Full Name
+        th Email
+        th # Guests
+    tbody
+      each guest in guests
+        tr
+          td #{guest.fullname}
+          td #{guest.email}
+          td #{guest.numGuests}

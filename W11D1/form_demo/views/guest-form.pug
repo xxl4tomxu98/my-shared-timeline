@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+  if errors
+    div
+      ul
+        each error in errors
+          li #{error}
+  h2 Add Guest
+  form(method="post" action="/guest-form")
+    input(type="hidden" name="_csrf" value=csrfToken)
+    label(for="fullname") Full Name:
+    input(type="fullname" id="fullname" name="fullname" value=fullname)
+    label(for="email") Email:
+    input(type="email" id="email" name="email" value=email)
+    label(for="numGuests") Num Guests
+    input(type="number" id="numGuests" name="numGuests" value=numGuests)
+    input(type="submit" value="Add Guest")
