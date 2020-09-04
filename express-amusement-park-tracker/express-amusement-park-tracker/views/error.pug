@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+  div
+    p=message || 'Server Error'
+
+  if stack
+    h4 Stack Trace
+    pre= stack

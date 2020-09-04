@@ -1,0 +1,9 @@
+extends layout.pug
+includes utils.pug
+block content
+  +validationErrors(errors)
+  form(action='/park/add' method='post')
+    include park-form.pug
+    div(class='py-4')
+      button(type='submit' class='btn btn-primary') Add Park
+      a(href='/' class='btn btn-warning ml-2') Cancel
