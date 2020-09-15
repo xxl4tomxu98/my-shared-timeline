@@ -34,8 +34,7 @@ app.use((req, res, next) => {
 
   // Note: We don't need to update the `session.history` property
   // with the updated array because arrays are passed by reference.
-  // Because arrays are passed by reference, when we get a
-  // reference to the array in the above code
+  // when we get a reference to the array in the above code
   // `let { history } = req.session;` and modify the array by
   // calling `history.unshift(url);` we're modifying the original
   // array that's stored in session!

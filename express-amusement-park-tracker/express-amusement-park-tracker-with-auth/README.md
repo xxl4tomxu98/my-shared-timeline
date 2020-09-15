@@ -65,7 +65,7 @@ have your application use the session. Make sure you configure the session with
 both `resave` and `saveUninitialized` set to `false`.
 
 Take a moment set a `SESSION_SECRET` environment variable in your `.env` file.
-Add a key of `sessionSecret` connected to the `process.env.SESSION_SECRET` in 
+Add a key of `sessionSecret` connected to the `process.env.SESSION_SECRET` in
 your `./config/index.js` module as well. As a reminder, you can generate a
 [UUID] to have a more secure `sessionSecret` variable value.
 
@@ -77,8 +77,8 @@ Your session should be configured like so:
 
 ```js
 app.use(session({
-  secret: sessionSecret, 
-  resave: false, 
+  secret: sessionSecret,
+  resave: false,
   saveUninitialized: false,
 }));
 ```
@@ -195,7 +195,7 @@ error messages. Lastly, re-render your `user-register` form and pass in your
 
 Now run your application and test the `/user/register` route! Remember that you
 can test your route by registering a user through the form and using Postbird to
-confirm whether or not your user has been persisted to the database. 
+confirm whether or not your user has been persisted to the database.
 
 ## Phase 4: Support user login
 
@@ -297,7 +297,7 @@ At this point in the project, there isn't any visual indication if the user is
 logged in or not (that's something that you'll fix in a bit). If you open your
 developer tools and view the "Application" tab, you can view the cookies for
 `http://localhost:8080`. After registering a new user or logging in an existing
-user, you should see a cookie named `reading-list.sid`. That's the session
+user, you should see a cookie named `amusement-park-tracker.sid`. That's the session
 cookie!
 
 ## Phase 6: Restore the authenticated user from session

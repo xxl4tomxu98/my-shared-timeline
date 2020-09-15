@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content
+  h3= visit.visitName
+  h4: em at #{visit.attraction.attractionName}
+  div(class='py-4')
+    p Proceed with deleting this visit?
+  div
+    form(action=`/visit/delete/${visit.id}` method='post')
+      input(type='hidden' name='_csrf' value=csrfToken)
+      button(class='btn btn-danger' type='submit') Delete Visit
+      a(class='btn btn-warning ml-2' href=`/attraction/${visit.attractionId}` role='button') Cancel

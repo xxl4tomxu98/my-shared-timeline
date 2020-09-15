@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/attraction/:id(\\d+)', asyncHandler(async (req, res) => {
   const attractionId = parseInt(req.params.id, 10);
-  const attraction = await db.Attraction.findByPk(attractionId, { include: ['park'] });
+  const attraction = await db.Attraction.findByPk(attractionId, { include: [{ model: db.Park, as: 'park' }, { model: db.AttractionVisit, as: 'visits', include: [{ model: db.User, as: 'user' }] }] });
   res.render('attraction-detail', { title: 'Attraction Detail', attraction });
 }));
 

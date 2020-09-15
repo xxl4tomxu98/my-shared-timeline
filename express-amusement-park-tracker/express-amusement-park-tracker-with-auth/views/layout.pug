@@ -13,6 +13,14 @@ html
       #navbarNav(class='collapse navbar-collapse')
         ul(class='navbar-nav')
           li(class='nav-item'): a(class='nav-link' href='/parks') Parks
+        if locals.authenticated
+          span(class='navbar-text px-4') Welcome #{user.firstName}!
+          form(class='form-inline pr-4' action='/user/logout' method='post')
+            button(class='btn btn-sm btn-warning' type='submit') Logout
+        else
+          span(class='navbar-text px-4')
+            a(class='btn btn-sm btn-dark mr-2' href='/user/login') Login
+            a(class='btn btn-sm btn-dark' href='/user/register') Register
     .container
       h2(class='py-4') #{title}
       block content

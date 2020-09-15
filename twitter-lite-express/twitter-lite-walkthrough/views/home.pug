@@ -1,0 +1,21 @@
+extends main-layout.pug
+
+append head
+  link(rel="stylesheet" href="/public/css/home.css")
+  script(src="/public/js/home.js" type="module" defer)
+
+block feed
+  .feed
+    .feed-header
+      a(href="/home"): h1 Home
+    .feed-form
+      .user-icon-button
+        <div class="user-icon">
+          <i class="fas fa-user"></i>
+        </div>
+      form#tweet-form
+        input(type="hidden" name="_csrf" value=csrf)
+        textarea(placeholder="What's happening?" name="message")
+        .feed-form-footer
+          button(type="submit" disabled) Tweet
+    include include/tweets-list.pug
