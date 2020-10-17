@@ -1,2 +1,0 @@
-let Family = require('./family');
-
