@@ -57,43 +57,49 @@
 // -----------
 // TODO: Implement the LRUCacheItem class here
 class LRUCacheItem {
-  constructor(val = null, key = null) {
-
-  }
+    constructor(val = null, key = null) {
+        this.value = val;
+        this.key = key;
+        this.next = null;
+        this.previous = null;
+    }
 }
 
 // TODO: Implement the LRUCacheItem class here
 class LRUCache {
-  constructor(limit) {
+    constructor(limit) {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+        this.limit = limit;
+    }
 
-  }
+    // TODO: Implement the size method here
+    size() {
 
-  // TODO: Implement the size method here
-  size() {
+    }
 
-  }
+    // TODO: Implement the get method here
+    get(key) {
 
-  // TODO: Implement the get method here
-  get(key) {
+    }
 
-  }
+    // TODO: Implement the set method here
+    set(key, val) {
 
-  // TODO: Implement the set method here
-  set(key, val) {
+    }
 
-  }
+    isFull() {
+        
+    }
 
-  isFull() {
-    
-  }
+    prune() {
 
-  prune() {
+    }
 
-  }
+    promote(item) {
 
-  promote(item) {
-
-  }
+    }
 }
 
 
