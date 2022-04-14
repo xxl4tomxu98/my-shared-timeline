@@ -57,73 +57,67 @@
 // -----------
 // TODO: Implement the LRUCacheItem class here
 class LRUCacheItem {
-  constructor(val = null, key = null) {
-    this.val = val;
-    this.key = key;
-    this.node = null;
-  }
+    constructor(val = null, key = null) {
+        this.val = val;
+        this.key = key;
+        this.node = null;
+    }
 }
 
 // TODO: Implement the LRUCacheItem class here
 class LRUCache {
-  constructor(limit) {
-    this.items = {};
-
-    this.ordering = new List();
-
-    this.limit = limit;
-    this.length = 0;
-  }
-
-  // TODO: Implement the size method here
-  size() {
-    return this.length;
-  }
-
-  // TODO: Implement the get method here
-  get(key) {
-    if (!this.items[key]) return null;
-
-    const item = this.items[key];
-    this.promote(item);
-
-    return item.val;
-  }
-
-  // TODO: Implement the set method here
-  set(key, val) {
-    let item;
-    // Set an existing item
-    if (this.items[key]) {
-      item = this.items[key];
-      item.val = val;
-      this.promote(item);
-
-      // Set a new item
-    } else {
-      // Make space if necessary
-      if (this.isFull()) this.prune();
-
-      item = new LRUCacheItem(val, key);
-      item.node = this.ordering.unshift(item);
-      this.items[key] = item;
-      this.length += 1;
+    constructor(limit) {
+        this.items = {};
+        this.ordering = new List();
+        this.limit = limit;
+        this.length = 0;
     }
-  }
 
-  isFull() {
-    return this.length >= this.limit;
-  }
+    // TODO: Implement the size method here
+    size() {
+        return this.length;
+    }
 
-  prune() {
-    const oldest = this.ordering.pop();
-    delete this.items[oldest.key];
-    this.length = Math.max(0, this.length - 1);
-  }
+    // TODO: Implement the get method here
+    get(key) {
+        if (!this.items[key]) return null;
+        const item = this.items[key];
+        this.promote(item);
+        return item.val;
+    }
 
-  promote(item) {
-    this.ordering.moveToFront(item.node);
-  }
+    // TODO: Implement the set method here
+    set(key, val) {
+        let item;
+        // Set an existing item
+        if (this.items[key]) {
+            item = this.items[key];
+            item.val = val;
+            this.promote(item);
+        // Set a new item
+        } else {
+            // Make space if necessary
+            if (this.isFull()) this.prune();
+            item = new LRUCacheItem(val, key);
+            item.node = this.ordering.unshift(item);
+            this.items[key] = item;
+            this.length += 1;
+        }
+    }
+
+    isFull() {
+        return this.length >= this.limit;
+    }
+
+    prune() {
+        const oldest = this.ordering.pop();
+        delete this.items[oldest.key];
+        this.length = Math.max(0, this.length - 1);
+    }
+
+    promote(item) {
+        this.ordering.moveToFront(item.node);
+    }
 }
 
 
@@ -145,110 +139,110 @@ class ListNode {
 }
 
 class List {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-  }
-
-  // Insert at the head of the list.
-  unshift(val) {
-    if (this.head === null && this.tail === null) {
-      this.head = new ListNode(val);
-      this.tail = this.head;
-    } else {
-      this.head = new ListNode(val, null, this.head);
-      this.head.next.prev = this.head;
+    constructor() {
+        this.head = null;
+        this.tail = null;
     }
 
-    return this.head;
-  }
+    // Insert at the head of the list.
+    unshift(val) {
+        if (this.head === null && this.tail === null) {
+            this.head = new ListNode(val);
+            this.tail = this.head;
+        } else {
+            this.head = new ListNode(val, null, this.head);
+            this.head.next.prev = this.head;
+        }
 
-  // Delete at the head of the list.
-  shift() {
-    if (this.head === null && this.tail === null) {
-      return null;
-    } else {
-      let head = this.head;
-      this.head = this.head.next;
-      head.delete();
-      return head.val;
-    }
-  }
-
-  // Insert at the end of the list.
-  push(val) {
-    if (this.head === null && this.tail === null) {
-      this.head = this.tail = new ListNode(val);
-    } else {
-      this.tail = new ListNode(val, this.tail, null);
-      this.tail.prev.next = this.tail;
+        return this.head;
     }
 
-    return this.tail;
-  }
-
-  // Delete at the end of the list.
-  pop() {
-    if (this.head === null && this.tail === null) {
-      return null;
-    } else {
-      let tail = this.tail;
-      this.tail = this.tail.prev;
-      tail.delete();
-      return tail.val;
+    // Delete at the head of the list.
+    shift() {
+        if (this.head === null && this.tail === null) {
+            return null;
+        } else {
+            let head = this.head;
+            this.head = this.head.next;
+            head.delete();
+            return head.val;
+        }
     }
-  }
+
+    // Insert at the end of the list.
+    push(val) {
+        if (this.head === null && this.tail === null) {
+            this.head = this.tail = new ListNode(val);
+        } else {
+            this.tail = new ListNode(val, this.tail, null);
+            this.tail.prev.next = this.tail;
+        }
+
+        return this.tail;
+    }
+
+    // Delete at the end of the list.
+    pop() {
+        if (this.head === null && this.tail === null) {
+            return null;
+        } else {
+            let tail = this.tail;
+            this.tail = this.tail.prev;
+            tail.delete();
+            return tail.val;
+        }
+    }
 
   // Move a node to the front of the List
-  moveToFront(node) {
-    if (node === this.tail) {
-      this.pop();
-    } else if (node === this.head) {
-      return;
-    } else {
-      node.delete();
+    moveToFront(node) {
+        if (node === this.tail) {
+            this.pop();
+        } else if (node === this.head) {
+            return;
+        } else {
+            node.delete();
+        }
+
+        node.prev = node.next = null;
+
+        // Don't delegate to shift, since we want to keep the same
+        // object.
+
+        if (this.head === null && this.tail === null) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            this.head.prev = node;
+            node.next = this.head;
+            this.head = node;
+        }
     }
 
-    node.prev = node.next = null;
+    // Move a node to the end of the List
+    moveToEnd(node) {
+        if (node === this.head) {
+            this.shift();
+        } else if (node === this.tail) {
+            return;
+        } else {
+            node.delete();
+        }
 
-    // Don't delegate to shift, since we want to keep the same
-    // object.
+        // Don't delegate to push, since we want to keep the same
+        // object.
 
-    if (this.head === null && this.tail === null) {
-      this.head = node;
-      this.tail = node;
-    } else {
-      this.head.prev = node;
-      node.next = this.head;
-      this.head = node;
+        node.prev = null;
+        node.next = null;
+
+        if (this.head === null && this.tail === null) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            this.tail.next = node;
+            node.prev = this.tail;
+            this.tail = node;
+        }
     }
-  }
-
-  // Move a node to the end of the List
-  moveToEnd(node) {
-    if (node === this.head) {
-      this.shift();
-    } else if (node === this.tail) {
-      return;
-    } else {
-      node.delete();
-    }
-
-    // Don't delegate to push, since we want to keep the same
-    // object.
-
-    node.prev = null;
-    node.next = null;
-
-    if (this.head === null && this.tail === null) {
-      this.head = node;
-      this.tail = node;
-    } else {
-      this.tail.next = node;
-      node.prev = this.tail;
-      this.tail = node;
-    }
-  }
 }
 
 exports.List = List;
